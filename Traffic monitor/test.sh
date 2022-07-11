@@ -9,6 +9,7 @@ fi
 
 printf "Select 1 to install the script\n"
 printf "Select 2 to uninstall the script\n"
+printf "Select 3 update config file\n"
 
 read -rp "Please select option 1 or 2: " choice
 
@@ -28,6 +29,7 @@ fi
 "$HOME"/scripts/traffic_monitor/bin/pip install --no-cache-dir wheel --upgrade
 #install external packages
 "$HOME"/scripts/traffic_monitor/bin/pip3 --no-cache-dir install requests
+"$HOME"/scripts/traffic_monitor/bin/pip3 --no-cache-dir install configparser
 
 
 
@@ -56,6 +58,11 @@ uninstall(){
     clear
 }
 
+# update function
+update(){
+  $HOME/scripts/traffic_monitor/bin/python3 $HOME/scripts/traffic_monitor/updateconfig.py
+}
+
 if [ "$choice" = "1" ]; then
 read -rp "Please enter how frequent you want script to check your traffic in mins example if you want to run it in every 5 mins just write 5 and press enter: " time
 installer $time
@@ -65,6 +72,11 @@ if [ "$choice" = "2" ]; then
 uninstall
 fi
 
-if [ ! "$choice" = "1" ] && [ ! "$choice" = "2" ]; then
+if [ "$choice" = "3" ]; then
+update
+fi
+
+
+if [ ! "$choice" = "1" ] && [ ! "$choice" = "2" ] && [ ! "$choice" = "3" ]; then
   echo "Wrong choice"
 fi
