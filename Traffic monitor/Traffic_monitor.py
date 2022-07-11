@@ -1,7 +1,7 @@
 import os 
 from subprocess import check_output, check_call
 import requests
-import datetime
+from datetime import datetime
 #variables
 path = os.getcwd()
 #threshold = 20.0 # homex/username

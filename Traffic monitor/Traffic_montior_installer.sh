@@ -20,7 +20,7 @@ if [ ! -d "$HOME/scripts" ]; then
   mkdir -p "$HOME/scripts/traffic_monitor"
 fi
 
-get -P $HOME/scripts/traffic_monitor/ https://raw.githubusercontent.com/yashgupta-112/Ultra-Script/master/Traffic%20monitor/Traffic_monitor.py
+wget -P $HOME/scripts/traffic_monitor/ https://raw.githubusercontent.com/yashgupta-112/Ultra-Script/master/Traffic%20monitor/Traffic_monitor.py
 
 clear
 
