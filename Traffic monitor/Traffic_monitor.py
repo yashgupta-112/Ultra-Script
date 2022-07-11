@@ -95,7 +95,7 @@ class traffic_monitor():
         
 traffic = traffic_monitor()
 if __name__ == '__main__':
-    check = os.path.exists(base_dir)
+    check = os.path.exists(threshold_file)
     if check == False:
         print("Please select the desired option from below\n")
         print("1. If you need notication on discord when you hit traffic limit")
@@ -105,7 +105,7 @@ if __name__ == '__main__':
             traffic.Discord_Notifications_Accepter
         if choice == "2":
             pass
-        threshold = input("Please enter at what percentage you want a notication enter value in float value example `20.0` or `35.0`")
+        threshold = input("Please enter at what percentage you want a notication enter value in float value example `20.0` or `35.0`: ")
         traffic.create_threshold_file(threshold)
         option = input("Want to stop torrent client if hit traffic threshold(yes/no)")
         traffic.create_option_file(option.lower())
@@ -119,7 +119,7 @@ if __name__ == '__main__':
             if val:
                 webhook = traffic.Discord_WebHook_Reader()
                 traffic.Discord_notification_(webhook)
-                C = traffic.read_option_file
+                C = traffic.read_option_file()
                 if C == "yes":
                     traffic.check_installed_torrent_client()
                 else:
@@ -133,7 +133,7 @@ if __name__ == '__main__':
             val = traffic.check_traffic(traffic_percent,thres)
             if val:
                 traffic.write_warning_intextfile(traffic_file)
-                C = traffic.read_option_file
+                C = traffic.read_option_file()
                 if C == "yes":
                     traffic.check_installed_torrent_client()
                 else:

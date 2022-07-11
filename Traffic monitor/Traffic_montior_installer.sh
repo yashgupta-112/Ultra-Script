@@ -39,7 +39,7 @@ cronjob="*/$1 * * * * $croncmd"
 
 uninstall(){
     rm -rf $HOME/scripts/traffic_monitor
-    crontab -l | grep -v '/usr/bin/python3 $HOME/scripts/traffic_monitor/Traffic_monitor.py > /dev/null 2>&1' | crontab -
+    crontab -l | grep -v traffic_monitor | crontab -
 
 }
 
