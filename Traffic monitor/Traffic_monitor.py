@@ -102,7 +102,7 @@ if __name__ == '__main__':
         print("2. If you need notication in text file at ~/scripts/traffic_monitor/")
         choice = input("Please enter your choice: ")
         if choice == "1":
-            traffic.Discord_Notifications_Accepter
+            traffic.Discord_Notifications_Accepter()
         if choice == "2":
             pass
         threshold = input("Please enter at what percentage you want a notication enter value in float value example `20.0` or `35.0`: ")
