@@ -38,7 +38,7 @@ wget -P $HOME/scripts/traffic_monitor/ https://raw.githubusercontent.com/yashgup
 
 clear
 
-croncmd="$HOME/scripts/traffic_monitor/bin/python3 $HOME/scripts/traffic_monitor/Traffic_monitor.py > /dev/null 2>&1"
+croncmd="$HOME/scripts/traffic_monitor/bin/python3 $HOME/scripts/traffic_monitor/traffic_test.py > /dev/null 2>&1"
 cronjob="*/$1 * * * * $croncmd"
 (
     crontab -l 2>/dev/null | grep -v -F "$croncmd" || :
@@ -46,7 +46,7 @@ cronjob="*/$1 * * * * $croncmd"
 ) | crontab -
 
 
-$HOME/scripts/traffic_monitor/bin/python3 $HOME/scripts/traffic_monitor/Traffic_monitor.py
+$HOME/scripts/traffic_monitor/bin/python3 $HOME/scripts/traffic_monitor/traffic_test.py
 }
 
 #uninstall function

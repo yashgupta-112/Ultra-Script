@@ -77,7 +77,6 @@ class traffic_monitor():
         response = requests.post(webhook, json=data)
 
     def create_config_file(self, threshold,opt):
-        threshold = config["threshold"]
         config.add_section('threshold')
         config.set('threshold', 'value', threshold)
         config.add_section('option')
@@ -92,6 +91,7 @@ class traffic_monitor():
         return thres, val
     
     def create_logs(self):
+        logging.basicConfig(filename="logfilename.log", level=logging.INFO)
         logging.warning("TIME"+ current_time + "You have hit your traffic limit")
 
 traffic = traffic_monitor()
@@ -131,11 +131,12 @@ if __name__ == '__main__':
                 pass
         else:
             traffic_percent = traffic.get_traffic_percent()
-            thres , val = traffic.read_config_file()
+            thres , C = traffic.read_config_file()
             thres = float(thres)
+            val = traffic.check_traffic(traffic_percent, thres)
             if val:
                 traffic.create_logs()
-                C = traffic.read_option_file()
+                
                 if C == "yes":
                     traffic.check_installed_torrent_client()
                 else:

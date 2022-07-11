@@ -20,13 +20,13 @@ current_time = now.strftime("%H:%M:%S")
 
 class traffic_monitor():
     def update_thre_val(self,val):
-        config.read(r"config.ini")
+        config.read(config_file)
         config.set('threshold', 'value', val)
         with open(config_file, 'w') as configfile:
             config.write(configfile)
             
     def update_torrent_val(self,val):
-        config.read(r"config.ini")
+        config.read(config_file)
         config.set('option', 'stop_torrentclient', val)
         with open(config_file, 'w') as configfile:
             config.write(configfile)
