@@ -26,7 +26,7 @@ fi
 "$HOME"/scripts/traffic_monitor/bin/pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1 | xargs -n1 "$HOME"/scripts/traffic_monitor/bin/pip install -U
 "$HOME"/scripts/traffic_monitor/bin/pip install --no-cache-dir wheel --upgrade
 #install external packages
-
+"$HOME"/scripts/traffic_monitor/bin/pip3 --no-cache-dir install requests
 
 
 
@@ -34,7 +34,7 @@ wget -P $HOME/scripts/traffic_monitor/ https://raw.githubusercontent.com/yashgup
 
 clear
 
-croncmd="/usr/bin/python3 $HOME/scripts/traffic_monitor/Traffic_monitor.py > /dev/null 2>&1"
+croncmd="$home/scripts/traffic_monitor/bin/python3 $HOME/scripts/traffic_monitor/Traffic_monitor.py > /dev/null 2>&1"
 cronjob="*/$1 * * * * $croncmd"
 (
     crontab -l 2>/dev/null | grep -v -F "$croncmd" || :
@@ -42,7 +42,7 @@ cronjob="*/$1 * * * * $croncmd"
 ) | crontab -
 
 
-/usr/bin/python3 $HOME/scripts/traffic_monitor/Traffic_monitor.py
+$home/scripts/traffic_monitor/bin/python3 $HOME/scripts/traffic_monitor/Traffic_monitor.py
 }
 
 #uninstall function
