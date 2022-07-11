@@ -16,7 +16,7 @@ read -rp "Please select option 1 or 2: " choice
 
 installer(){
 
-if [ ! -d "$HOME/scripts" ]; then
+if [ ! -d "$HOME/scripts/traffic_monitor" ]; then
   mkdir -p "$HOME/scripts/traffic_monitor"
 fi
 

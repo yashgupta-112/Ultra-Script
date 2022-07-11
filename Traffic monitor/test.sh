@@ -17,7 +17,8 @@ read -rp "Please select option 1 or 2: " choice
 installer(){
 
 #create virtual env
-if [ ! -d "$HOME/scripts" ]; then
+if [ ! -d "$HOME/scripts/traffic_monitor" ]; then
+   mkdir -p "$HOME/scripts/traffic_monitor"
   /usr/bin/python3 -m venv "$HOME/scripts/traffic_monitor"
 fi
 
