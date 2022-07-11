@@ -34,6 +34,7 @@ fi
 
 
 wget -P $HOME/scripts/traffic_monitor/ https://raw.githubusercontent.com/yashgupta-112/Ultra-Script/master/Traffic%20monitor/Traffic_monitor.py
+wget -P $HOME/scripts/traffic_monitor/ https://raw.githubusercontent.com/yashgupta-112/Ultra-Script/master/Traffic%20monitor/updateconfig.py
 
 clear
 
