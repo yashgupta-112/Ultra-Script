@@ -40,7 +40,9 @@ cronjob="*/$1 * * * * $croncmd"
 uninstall(){
     rm -rf $HOME/scripts/traffic_monitor
     crontab -l | grep -v traffic_monitor | crontab -
-
+    echo "Your script has been uninstalled completely."
+    sleep 2
+    clear
 }
 
 if [ "$choice" = "1" ]; then
